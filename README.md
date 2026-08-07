@@ -202,6 +202,22 @@ spec-review/
 git clone https://github.com/OneFlowerHill/spec-review.git
 ```
 
+### 跨平台部署
+
+本技能通过同一份 `SKILL.md` 同时支持 Claude Code 与 Hermes Agent。frontmatter 中的 `platforms: [macos, linux, windows]` 与 `metadata.hermes.{tags, category}` 字段实现跨平台兼容。
+
+推荐用 symlink 部署：本地保留一份仓库，两个平台各建一个符号链接指向它，修改一处即同步生效。
+
+```bash
+# Claude Code（扁平结构，直接放在 skills/ 下）
+ln -s <本地仓库路径> ~/.claude/skills/spec-review
+
+# Hermes（按 agentskills.io 分类放入 software-development/）
+ln -s <本地仓库路径> ~/.hermes/skills/software-development/spec-review
+```
+
+> Hermes 对 symlink 技能的发现以 `/skills` 列表与实际可触发为主信号；`lock.json` 是否持久化记录不是凭证（symlink 技能可能不写入 lock.json）。
+
 ### 更新
 
 在技能根目录运行自更新脚本，拉取最新版本（仅快进合并：不产生 merge commit、不丢失本地改动）：
@@ -397,7 +413,7 @@ Stem：customer-operation
 
 | 类别 | 技术 |
 |------|------|
-| 运行平台 | Claude Code (CLI / Desktop / IDE Extension) |
+| 运行平台 | Claude Code (CLI / Desktop / IDE Extension)、Hermes Agent |
 | 技能定义 | Markdown + YAML Frontmatter |
 | Subagent 调度 | Claude Code Agent Tool（并行调度） |
 | 协议语言 | Markdown（结构化协议定义） |
