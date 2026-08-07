@@ -1,0 +1,49 @@
+{
+  "algorithm": {
+    "id": "builtin-v1",
+    "version": "1.0.0",
+    "description": "Deterministic, zero-dependency token counter pinned in scripts/token_analyzer.py. Any change to the caliber MUST bump version and go through decision."
+  },
+  "threshold": {
+    "min_reduction_pct": null,
+    "enforced": false,
+    "note": "Hard token-reduction gate REMOVED; reverses review-002 CR-004 (ACCEPTED). Reduction is now reported for visibility only. The acceptance gate (scripts/token_analyzer.py --compare) validates file completeness (no missing baseline/candidate files) + common.md reference integrity (every 'references/common.md §X.Y' resolves to a real heading in references/common.md) instead of a reduction percentage."
+  },
+  "baseline": {
+    "description": "Restored pre-slim yy-spec-review framework prompt files (the thing being slimmed). Snapshot captured from git 45d26fa (before Plan B in-place slimming). Locked snapshot of scope; do NOT edit unless scope legitimately changes (then bump algorithm/manifest version).",
+    "files": [
+      "scripts/baseline_snapshot/SKILL.md",
+      "scripts/baseline_snapshot/protocols/consolidation-protocol.md",
+      "scripts/baseline_snapshot/protocols/decision-protocol.md",
+      "scripts/baseline_snapshot/protocols/finding-protocol.md",
+      "scripts/baseline_snapshot/protocols/review-orchestrator-protocol.md",
+      "scripts/baseline_snapshot/roles/product-reviewer.md",
+      "scripts/baseline_snapshot/roles/system-critic.md",
+      "scripts/baseline_snapshot/roles/test-designer.md",
+      "scripts/baseline_snapshot/templates/product-review.md",
+      "scripts/baseline_snapshot/templates/system-review.md",
+      "scripts/baseline_snapshot/templates/test-review.md",
+      "scripts/baseline_snapshot/templates/consolidated-review.md",
+      "scripts/baseline_snapshot/templates/index.md"
+    ]
+  },
+  "candidate": {
+    "description": "Slimmed framework + references/common.md. The 13 live files above are replaced in place by their slimmed versions and references/common.md (new shared defs) is added and counted into the candidate total.",
+    "files": [
+      "SKILL.md",
+      "protocols/consolidation-protocol.md",
+      "protocols/decision-protocol.md",
+      "protocols/finding-protocol.md",
+      "protocols/review-orchestrator-protocol.md",
+      "roles/product-reviewer.md",
+      "roles/system-critic.md",
+      "roles/test-designer.md",
+      "templates/product-review.md",
+      "templates/system-review.md",
+      "templates/test-review.md",
+      "templates/consolidated-review.md",
+      "templates/index.md",
+      "references/common.md"
+    ]
+  }
+}

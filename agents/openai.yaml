@@ -1,0 +1,7 @@
+interface:
+  display_name: "多视角审核 Spec 文档"
+  short_description: "对 Design Spec 进行产品、系统、测试三角色并行独立审核，合并 Finding，产出结构化审核文档供规格所有者决策。"
+  default_prompt: "使用 $spec-review 审核指定的 Design Spec（docs/superpowers/specs/<spec>.md），产出三角色独立审核与合并审核文档。"
+
+policy:
+  allow_implicit_invocation: false
